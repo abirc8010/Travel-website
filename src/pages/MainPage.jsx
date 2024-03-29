@@ -5,7 +5,7 @@ import LocationTaker from '../components/LocationTaker'
 
 const MainPage = () => {
     return (
-        <div className='w-full min-h-[100vh] bg-rose-500'>
+        <div className='w-full min-h-[100vh] bg-500'>
             <Header/>
             <FormComponent/>
             <LocationTaker/>
