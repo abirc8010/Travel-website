@@ -5,3 +5,32 @@
 .icon{
     font-weight:bolder;
 }
+.Sidebar{
+    height: 100%;
+    background-image: url("m.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+.source{
+    display: flex;
+    justify-content: end;
+    height:6vh;
+    width:80%;
+    background-color: antiquewhite;
+    margin-top: 30px;
+}
+.search{
+    border: none;
+    width:90%;
+    height:100%;
+    padding: 5px;
+}
+#Navigate{
+    margin-top: 15px;
+    margin-left:25px;
+    height:16vh;
+    width:100%;
+}

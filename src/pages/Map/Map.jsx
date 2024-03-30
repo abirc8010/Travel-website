@@ -10,17 +10,21 @@ export default function() {
                 location: true,
                 }
     );
-      Marker1 = new mappls.Marker({
-                map: map,
-                position: {
-                    "lat": 23.3551,
-                    "lng": 85.3595
-                },
-                fitbounds: true,
-                icon: "https://maps.mapmyindia.com/images/to.png"
-            });
-            Marker1.addListener('click', function() {
-                window.open('https://www.mapmyindia.com/');
+    map.addListener('load',function(){ 
+                /*direction plugin initialization*/
+                var direction_option = {
+                    map: map,
+                    divId: 'Navigate',
+                    divWidth:'350px',
+                    isDraggable:false,
+                    end: {label: 'India Gate', geoposition: "28.612964,77.229463" },
+                    Profile:['driving','biking','trucking','walking'],
+                    via:[{label:'mathura',geoposition:"28.544,77.4541"},{label:'Koshi',geoposition:"28.144,77.4541"}]
+                }
+                mappls.direction(direction_option,function(data) {
+                    direction_plugin=data;
+                    console.log(direction_plugin);
+                });
             });
     }
 
