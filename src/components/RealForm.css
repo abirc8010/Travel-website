@@ -1,0 +1,13 @@
+.sample {
+    /* background: rgb(11, 36, 0);
+    background: linear-gradient(186deg, rgba(11, 36, 0, 1) 0%, rgba(3, 170, 223, 1) 47%, rgba(0, 255, 93, 1) 100%); */
+    background-image: url(camping.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.so {
+    background: rgb(55, 228, 121);
+    background: linear-gradient(186deg, rgba(55, 228, 121, 0.6195728291316527) 14%, rgba(3, 170, 223, 0.756827731092437) 62%, rgba(0, 255, 93, 1) 100%);
+}

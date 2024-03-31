@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LocationTaker = () => {
   const [location, setLocation] = useState('');
+  const [lat, setLat] = useState(null)
+  const [lng, setLng] = useState(null)
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitted location:', location);
+    navigate(`/maps?lat=${lat}&lng=${lng}`)
   };
 
   const handleGetCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
+        setLat(position.coords.latitude)
+        setLng(position.coords.longitude)
       }, (error) => {
         console.error('Error getting current location:', error);
       });

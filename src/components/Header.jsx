@@ -4,8 +4,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 py-4">
-      <div className="container sticky mx-auto flex justify-between items-center">
+    <header className="bg-gray-800 absolute w-full px-4 py-4">
+      <div className="container mx-auto flex justify-between items-center">
         {/* Left items */}
         <div className="flex items-center space-x-4">
           <div className="text-white">Left Item 1</div>
