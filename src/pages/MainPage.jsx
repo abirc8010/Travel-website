@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../pages/Header/Header.jsx'
 import FormComponent from '../components/Form'
 import LocationTaker from '../components/LocationTaker'
 import RealForm from '../components/RealForm'

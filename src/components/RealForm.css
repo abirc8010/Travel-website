@@ -5,9 +5,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height:104vh;
 }
 
 .so {
+    position: absolute;
+    top:80px;
+    height:90vh;
     background: rgb(55, 228, 121);
     background: linear-gradient(186deg, rgba(55, 228, 121, 0.6195728291316527) 14%, rgba(3, 170, 223, 0.756827731092437) 62%, rgba(0, 255, 93, 1) 100%);
 }
