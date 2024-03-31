@@ -5,21 +5,12 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import "../Map/Drawer.css"
-const drawerWidth = 240;
-
+const drawerWidth = 400;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -57,6 +48,8 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
+  boxShadow:'0 4px 8px black',
+  background:"rgba(0,36,277,0.45)",
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
@@ -77,7 +70,7 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} >
       <CssBaseline />
       <AppBar position="fixed" open={open} className="Hide">
         <Toolbar>
@@ -94,7 +87,6 @@ export default function PersistentDrawerLeft() {
         </Toolbar>
       </AppBar>
       <Drawer
-      className="Sidebar"
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -107,41 +99,16 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
+          
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        </DrawerHeader >  
+        <div className="Sidebar">
+        <div id="Navigate"></div>
+        </div>  
       </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-      </Main>
     </Box>
   );
 }
