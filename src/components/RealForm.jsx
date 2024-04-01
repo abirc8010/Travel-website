@@ -1,10 +1,7 @@
-// TravelPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import './RealForm.css'
 import 'animate.css';
-
 const RealForm = () => {
     const [crowdDensity, setCrowdDensity] = useState('');
     const [distance, setDistance] = useState('');
@@ -13,54 +10,18 @@ const RealForm = () => {
     const [lat, setLat] = useState(null)
     const [lng, setLng] = useState(null)
     const navigate = useNavigate();
-
     const handleSubmit = (e) => {
+             navigate(`/map?loc=${location}&dist=${distance}&crowd=${crowdDensity}&days=${daysOfTravel}`);
+       
         e.preventDefault();
-        // console.log('Server Response:', data);
         setCrowdDensity('');
         setDistance('');
         setDaysOfTravel('');
         setLocation('');
         setLat(null);
         setLng(null);
-        navigate(`/maps?lat=${lat}&lng=${lng}`);
     }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
 
-    //     fetch('/process_data', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             crowdDensity,
-    //             distance,
-    //             daysOfTravel,
-    //             lat,
-    //             lng
-    //         })
-    //     })
-    //     .then(response => {
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok');
-    //         }
-    //         return response.json();
-    //     })
-    //     .then(data => {
-    //         console.log('Server Response:', data);
-    //         setCrowdDensity('');
-    //         setDistance('');
-    //         setDaysOfTravel('');
-    //         setLocation('');
-    //         setLat(null);
-    //         setLng(null);
-    //         navigate(`/maps?lat=${lat}&lng=${lng}`);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error.message);
-    //     });
-    // };
 
     const handleGetCurrentLocation = () => {
         if (navigator.geolocation) {
@@ -80,11 +41,12 @@ const RealForm = () => {
         <div className="min-h-screen  bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('your-background-image.jpg')" }}>
             <div className="flex sample justify-center items-center min-h-screen">
                 <div className=" so p-8 rounded-lg shadow-md w-96">
-                    <h2 className="text-2xl font-bold mb-4">Travel Details</h2>
+                    <h2 className="text-1xl font-bold mb-4">Travel Details </h2>
+                    <h6>(AI powered suggestion)</h6>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label htmlFor="crowdDensity" className="block text-gray-700 font-bold mb-2">Crowd Density:</label>
-                            <input required placeholder='Enter preferred crowd density'
+                            <input required placeholder='low / moderate / more crowd'
                                 type="text" id="crowdDensity" value={crowdDensity} onChange={(e) => setCrowdDensity(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                         </div>
                         <div className="mb-4 ">
@@ -119,7 +81,7 @@ const RealForm = () => {
                             </button>
 
                         </div>
-                        <button type="submit" className="bg-rose-500 w-full hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                        <button className="bg-rose-500 w-full hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
                     </form>
                 </div>
             </div>

@@ -49,9 +49,11 @@ const AppBar = styled(MuiAppBar, {
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   boxShadow:'0 4px 8px black',
-  background:"rgba(0,36,277,0.45)",
+  background:"linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%)",
   display: 'flex',
   alignItems: 'center',
+  fontSize: 'larger',
+  fontWeight:'bolder',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
@@ -101,6 +103,8 @@ export default function PersistentDrawerLeft() {
       >
           
         <DrawerHeader>
+
+           <a href="/">Travel</a>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
