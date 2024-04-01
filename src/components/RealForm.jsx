@@ -17,12 +17,39 @@ const RealForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log('Server Response:', data);
+        console.log(crowdDensity," ",distance," ",location)
+        let data = {
+            // Get the lat and lng of location using OpenWeather API for map loading
+            // Currently I have hardcoded it to Kolkata
+            // "location":location,
+            "location": "Kolkata",
+            "distance":distance,
+            "crowd":crowdDensity,
+            "days":daysOfTravel
+        }
+
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://holiday-planner-ai.onrender.com/recommend',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            data: data
+        }
+
+        axios.request(config).
+        then((response)=>{
+            console.log(JSON.stringify(response.data))
+        })
+        .catch((error)=>{console.log(error)})
         setCrowdDensity('');
         setDistance('');
         setDaysOfTravel('');
         setLocation('');
         setLat(null);
         setLng(null);
+
         navigate(`/maps?lat=${lat}&lng=${lng}`);
     }
     // const handleSubmit = (e) => {
@@ -61,7 +88,9 @@ const RealForm = () => {
     //         console.error('Error:', error.message);
     //     });
     // };
-
+    const setCrowdDensityMethod = (e)=>{
+        setCrowdDensity(e.target.value)
+    }
     const handleGetCurrentLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -83,9 +112,20 @@ const RealForm = () => {
                     <h2 className="text-2xl font-bold mb-4">Travel Details</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
-                            <label htmlFor="crowdDensity" className="block text-gray-700 font-bold mb-2">Crowd Density:</label>
+                            {/* <label htmlFor="crowdDensity" className="block text-gray-700 font-bold mb-2">Crowd Density:</label>
                             <input required placeholder='Enter preferred crowd density'
-                                type="text" id="crowdDensity" value={crowdDensity} onChange={(e) => setCrowdDensity(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                                type="text" id="crowdDensity" value={crowdDensity} onChange={(e) => setCrowdDensity(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /> */}
+                            <label htmlFor="crowd_density" className="block text-gray-700 font-bold mb-2">Preferred crowd density:</label>
+                            <select
+                                value={crowdDensity}
+                                id="crowd_density"
+                                onChange={setCrowdDensityMethod}
+                                className="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                            >
+                                <option value="less-crowded">I am scared of people</option>
+                                <option value="moderately-crowded">A little crowd hurt nobody</option>
+                                <option value="highly-crowded">The more, the merrier</option>
+                            </select>
                         </div>
                         <div className="mb-4 ">
                             <label htmlFor="distance" className="block text-gray-700 font-bold mb-2">Distance(in km):</label>
