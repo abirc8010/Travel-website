@@ -28,7 +28,7 @@
     height:108vh;
     width:100%;
     margin-top: 0;
-    background-image: url('track.jpg');
+    background-image: url('./static/images/track.jpg');
     background-size: cover;
 }
  .trains{

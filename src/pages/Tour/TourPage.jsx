@@ -65,7 +65,7 @@ const TourPage = () => {
         <>
     <Header />
         <div className='places'>  
-          <img src="tour.jpg" className="tour-background"/> 
+          <img src="./static/images/tour.jpg" className="tour-background"/> 
           <div className='result'>
           {info && info.map(place => (
             <div key={place.City} className='place'> 

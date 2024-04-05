@@ -34,7 +34,7 @@ const RealForm = () => {
     };
 
     return (
-        <div className="min-h-screen  bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('./public/your-background-image.jpg')" }}>
+        <div className="min-h-screen  bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('./static/images/camping.jpg')" }}>
             <div className="flex sample justify-center items-end min-h-screen">
                 <div className="so">
                     <h1 className='text-xg font-bold text-white'>Travel Details </h1>
