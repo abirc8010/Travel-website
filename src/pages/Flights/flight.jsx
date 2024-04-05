@@ -124,7 +124,7 @@ const indianFlights = [
                </div>
             <img className="flight-image" src="https://cdn.zeebiz.com/sites/default/files/2023/08/19/256870-air-india-reuters.jpg"></img>
            </div>
-           <div className="flight-list">
+           <div className="flight-list" style={{ backgroundImage: "url('./static/images/airport.jpeg')" }}>
               <div className="flights">
                  {indianFlights.map(flight => (
                 <div className="flightlist-div">

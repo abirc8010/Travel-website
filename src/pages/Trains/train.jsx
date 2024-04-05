@@ -123,7 +123,7 @@ export default function(){
                </div>
             <img className="train-image" src="https://imgeng.jagran.com/images/2022/apr/railways1650074183526.jpg"></img>
            </div>
-           <div className="train-list">
+           <div className="train-list" style={{ backgroundImage: "url('./static/images/track.jpg')" }}>
               <div className="trains">
                  {indianTrains.map(train => (
                 <div className="trainlist-div">
