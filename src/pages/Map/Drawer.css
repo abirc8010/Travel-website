@@ -35,3 +35,9 @@
     height:16vh;
     width:100%;
 }
+.travel{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 3px;
+}

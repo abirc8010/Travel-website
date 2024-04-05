@@ -7,11 +7,12 @@ import Map from './pages/Map/Map.jsx'
 import Map2 from './pages/Map/Map2.jsx'
 import Train from './pages/Trains/train.jsx'
 import Flights from './pages/Flights/flight.jsx'
+import Loader from './pages/loader/loader.jsx'
 function App() {
-    const [count, setCount] = useState(0)
 
     return (
         <Routes>
+        <Route path='/load' element={<Loader/>}/>
             <Route path="/" element={<MainPage/>} />
             <Route path='/tours' element={<TourPage/>}/>
             <Route path='/maps' element={<Map/>}/>

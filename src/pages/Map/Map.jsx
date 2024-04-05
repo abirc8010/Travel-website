@@ -1,8 +1,6 @@
 
 import '../Map/Map.css';
 import Drawer from "../Map/Drawer.jsx"
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 export default function () {
     var map;
 

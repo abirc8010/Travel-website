@@ -10,6 +10,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "../Map/Drawer.css"
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 const drawerWidth = 400;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -104,7 +105,9 @@ export default function PersistentDrawerLeft() {
           
         <DrawerHeader>
 
-           <a href="/">Travel</a>
+          <div className='travel'>
+          <a href="/"><AirplanemodeActiveIcon/> Travel</a>
+          </div>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>

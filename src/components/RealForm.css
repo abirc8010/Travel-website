@@ -9,9 +9,40 @@
 }
 
 .so {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2px 2px 8px 2px;
     position: absolute;
-    top:80px;
-    height:90vh;
-    background: rgb(55, 228, 121);
-    background: linear-gradient(186deg, rgba(55, 228, 121, 0.6195728291316527) 14%, rgba(3, 170, 223, 0.756827731092437) 62%, rgba(0, 255, 93, 1) 100%);
+    top:120px;
+    width:50vw;
+    height:60vh;
+    border-radius: 10px;
+    background:linear-gradient(180deg, rgba(255, 102, 0, 0.682) 14%, rgba(255, 255, 255, 0.41) 50%, rgba(0, 255, 94, 0.78) 100%); 
+       
+}
+.submitting{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.top{
+    margin-bottom: 10px;
+    display: flex;
+    height:80px;
+    width: 42vw;
+    justify-content: space-between;
+}
+.middle{
+    display: flex;
+    height:80px;
+    width: 100%;    
+    justify-content: space-between;
+     margin-bottom: 10px;
+     padding: none;
+   
 }

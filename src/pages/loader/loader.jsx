@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
-
+import './loader.css'
 const Loading = () => {
   return (
-    <div className="loading-container">
-      <ReactLoading type="spin" color="#007bff" height={50} width={50} />
-    </div>
+     <div className="spinner">
+            <span>Loading...</span>
+            <div className="half-spinner"></div>
+          </div>
   );
 };
 
