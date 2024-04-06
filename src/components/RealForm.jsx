@@ -36,11 +36,11 @@ const RealForm = () => {
     return (
         <div className="min-h-screen  bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('./static/images/camping.jpg')" }}>
             <div className="flex sample justify-center items-end min-h-screen">
-                <div className="so h-[600px]">
+                <div className="so">
                     <h1 className='text-xg font-bold text-white'>Travel Details </h1>
                     <h6 className='font-bold text-white'>(AI powered suggestion)</h6>
                     <form onSubmit={handleSubmit}>
-                        <div className='top flex flex-col lg:flex-row'>
+                        <div className='top'>
                             <div className="mb-4">
                                 <label htmlFor="crowdDensity" className="block text-black-700 font-bold mb-2">Crowd Density:</label>
                                 <select value={crowdDensity} onChange={(e) => setCrowdDensity(e.target.value)} name="crowd" id="crowd" className='shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none '>
@@ -56,13 +56,13 @@ const RealForm = () => {
                                     type="text" id="distance" value={distance} onChange={(e) => setDistance(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                             </div>
                         </div>
-                        <div className='middle flex flex-col lg:flex-row'>
+                        <div className='middle'>
                             <div className="mb-4">
                                 <label htmlFor="daysOfTravel" className="block text-black-700 font-bold mb-2">Days of Travel:</label>
                                 <input required placeholder='Enter number of days of travel'
                                     type="text" id="daysOfTravel" value={daysOfTravel} onChange={(e) => setDaysOfTravel(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                             </div>
-                            <div className='mb-4'>
+                            <div className='mb-4 flex flex-col '>
                                 <label htmlFor='currentLocation' className="block text-black-700 font-bold mb-2">
                                     Enter starting location:
                                 </label>
@@ -75,9 +75,11 @@ const RealForm = () => {
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
                                 />
+
+
                             </div>
                         </div>
-                        <div className='submitting '>
+                        <div className='submitting'>
                             <button
                                 className="bg-blue-500 w-50 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                 type="button"

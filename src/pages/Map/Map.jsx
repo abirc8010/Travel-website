@@ -16,7 +16,7 @@ export default function () {
                 var direction_option = {
                     map: map,
                     divId: 'Navigate',
-                    divWidth:'350px',
+                    divWidth:'300px',
                     isDraggable:false,
                     Profile:['driving','biking','trucking','walking'],
                     
@@ -25,6 +25,24 @@ export default function () {
                     direction_plugin=data;
                     console.log(direction_plugin);
                 });
+                var options = {
+                divId: 'nearby_search',
+                search_icon: false,
+                map: map,
+                keywords:{'FINATM':'ATMs', 'FODCOF;FODIND;FODOTH':'Hotels'},
+                refLocation: "28.632735,77.219696",
+                fitbounds: true,
+                click_callback: function(d) {
+                    if (d) {
+                        var l = "Name: " + d.placeName + "\nAddress: " + d.placeAddress + "\neLoc: " + d.eLoc;
+                        alert(l);
+                    };
+                }
+            }
+            mappls.nearby(options, function(data){
+                nr= data;
+                console.log(nr);
+            });
                });
     }
 

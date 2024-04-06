@@ -7,6 +7,7 @@
 }
 .Sidebar{
     height: 100%;
+    width:100%;
     /* background-image: url("m.jpg");
     background-size: cover; */
     background:linear-gradient(170deg, rgba(111, 64, 227, 0.44) 34%, rgba(8, 155, 200, 0.314) 70%, rgba(19, 150, 10, 0.456) 100%);
@@ -14,13 +15,28 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    flex-wrap: wrap;
+}
+.MuiTab-labelIcon{
+    width: 50% !important;
+
+}
+.MuiTab-root{
+     width: 50% !important;
+         background:linear-gradient(170deg, rgba(111, 64, 227, 0.44) 34%, rgba(8, 155, 200, 0.314) 70%, rgba(19, 150, 10, 0.456) 100%)!important;  
+}
+.design{
+    background:linear-gradient(170deg, rgba(111, 64, 227, 0.44) 34%, rgba(8, 155, 200, 0.314) 70%, rgba(19, 150, 10, 0.456) 100%)!important;
+    height:56vh;
+    flex:1;
+    overflow: hidden!important;
 }
 .source{
     display: flex;
     justify-content: end;
     height:6vh;
     width:80%;
-    background-color: antiquewhite;
+    background-color: rgb(195, 110, 0);
     margin-top: 30px;
 }
 .search{
@@ -31,9 +47,13 @@
 }
 #Navigate{
     margin-top: 15px;
-    margin-left:25px;
-    height:16vh;
-    width:100%;
+    height:30vh;
+    width:400px;
+    display: flex;
+}
+.nearby_search{
+    height:80vh;
+    width:50vw;
 }
 .travel{
     width:100%;

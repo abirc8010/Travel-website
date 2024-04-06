@@ -1,5 +1,10 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,7 +16,28 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "../Map/Drawer.css"
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
-const drawerWidth = 400;
+import loader from "../loader/loader.jsx"
+const drawerWidth = 350;
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
+
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -49,27 +75,39 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
-  boxShadow:'0 4px 8px black',
-  background:"linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%)",
+  boxShadow: '0 4px 8px black',
+  background: "linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%)",
   display: 'flex',
   alignItems: 'center',
   fontSize: 'larger',
-  fontWeight:'bolder',
+  fontWeight: 'bolder',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-
 export default function PersistentDrawerLeft() {
+  const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState('');
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  useEffect(async () => {
+    setTimeout(() => {
+      const initialContent = document.getElementById('Navigate');
+      console.log(initialContent);
+      setContent(initialContent.innerHTML);
+    }, 4000);
+  }, []);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
@@ -83,9 +121,9 @@ export default function PersistentDrawerLeft() {
             edge="start"
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
-           <ArrowForwardIosIcon
-            className="icon"
-           />
+            <ArrowForwardIosIcon
+              className="icon"
+            />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -102,19 +140,27 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
-          
-        <DrawerHeader>
 
+        <DrawerHeader>
           <div className='travel'>
-          <a href="/"><AirplanemodeActiveIcon/> Travel</a>
+            <a href="/"><AirplanemodeActiveIcon /> Travel</a>
           </div>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-        </DrawerHeader >  
-        <div className="Sidebar">
-        <div id="Navigate"></div>
-        </div>  
+        </DrawerHeader >
+        <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+          <Tabs value={value} onChange={handleChange} centered>
+            <Tab label="Directions" />
+            <Tab label="Hotel Search" />
+          </Tabs>
+        </Box>   
+      <TabPanel value={value} index={0} className='Sidebar'>
+        <div id='Navigate'></div>
+      </TabPanel>
+      <TabPanel value={value} index={1} className='Sidebar'>
+        <div id="nearby_search"></div>
+      </TabPanel> 
       </Drawer>
     </Box>
   );

@@ -21,8 +21,10 @@
     height:70%;
     width: 100%;
     z-index: 1;
-     background: linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%);
-        overflow-x: hidden;
+     /* background: linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%);
+       */ 
+       background-color: rgba(0, 0, 0, 0.606);
+       overflow-x: hidden; 
 }
 .flight-list{
     height:108vh;
