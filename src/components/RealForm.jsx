@@ -36,7 +36,7 @@ const RealForm = () => {
     return (
         <div className="min-h-screen  bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('./static/images/camping.jpg')" }}>
             <div className="flex sample justify-center items-end min-h-screen">
-                <div className="so ">
+                <div className="so h-[600px]">
                     <h1 className='text-xg font-bold text-white'>Travel Details </h1>
                     <h6 className='font-bold text-white'>(AI powered suggestion)</h6>
                     <form onSubmit={handleSubmit}>
