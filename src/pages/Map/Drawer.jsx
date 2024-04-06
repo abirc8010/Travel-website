@@ -10,6 +10,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "../Map/Drawer.css"
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 const drawerWidth = 400;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -49,9 +50,11 @@ const AppBar = styled(MuiAppBar, {
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   boxShadow:'0 4px 8px black',
-  background:"rgba(0,36,277,0.45)",
+  background:"linear-gradient(170deg, rgba(156, 153, 14, 0.44) 14%, rgba(18, 74, 91, 0.314) 40%, rgba(0, 255, 94, 0.233) 100%)",
   display: 'flex',
   alignItems: 'center',
+  fontSize: 'larger',
+  fontWeight:'bolder',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
@@ -101,6 +104,10 @@ export default function PersistentDrawerLeft() {
       >
           
         <DrawerHeader>
+
+          <div className='travel'>
+          <a href="/"><AirplanemodeActiveIcon/> Travel</a>
+          </div>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>

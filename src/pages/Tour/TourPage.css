@@ -1,0 +1,98 @@
+
+.places{
+    background-color: aqua;
+    position: absolute;
+    top:0;
+    /* min-height: 100vh; */
+    height: 100vh;
+    width:100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* overflow: scroll; */
+}
+.place{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:10px 10px 10px 10px;
+    height:60vh;
+    width:30vw;
+    font-size: medium;
+    background:linear-gradient(180deg, rgba(235, 94, 0, 0.713) 14%, rgba(255, 255, 255, 0.78) 40%, rgba(0, 255, 94, 0.78) 70%); 
+    margin:20px 20px 20px 20px;
+}
+.tour-background{
+    overflow-x: hidden;
+    object-fit: fill;
+}
+.result{
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    padding-top: 10%;
+    overflow-y: scroll;
+    height: 100vh;
+    width:100vw;
+    position: absolute;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.556);
+    display: flex;
+    justify-content: space-around;
+     border:2px solid black;
+     flex-wrap: wrap;
+}
+@media (max-width:1024px) {
+  .result{
+    flex-direction: column;
+    /* overflow-y: scroll; */
+    /* min-height: 100vh; */
+    height: 800vh;
+  }
+  .places{
+    min-height: 100%;
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+  }
+  .place{
+    width: 100%;
+    height: 40vh;
+  }
+}
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+.card-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-size: large;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width:10vw;
+  
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+.button{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}

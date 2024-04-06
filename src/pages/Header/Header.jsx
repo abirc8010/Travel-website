@@ -16,8 +16,7 @@ const pages = [
                {page:'HOME', route:"/"} ,
                {page:'MAPS',route:"/maps"},
                {page:'TRAINS',route:"/train"},
-               {page:'FLIGHTS',route:"/flight"},
-               {page:'ABOUT', route:"/about"}];
+               {page:'FLIGHTS',route:"/flight"},];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
