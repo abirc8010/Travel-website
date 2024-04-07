@@ -8,7 +8,7 @@ export default function(){
   const src = searchParams.get('src');
   const des= searchParams.get('des');
   async function GeoPosition(travel){
-       let r=await axios.get(`https://us1.locationiq.com/v1/search?key=pk.f40dad5ec3373c96ad91e0365a3bf927&q=${travel}&format=json&`)
+       let r=await axios.get(`https://us1.locationiq.com/v1/search?key=<token>&q=${travel}&format=json&`)
        console.log(r);
        return `${r.data[0].lat},${r.data[0].lon}`;
     }
