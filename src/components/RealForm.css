@@ -1,48 +1,125 @@
-.sample {
-    /* background: rgb(11, 36, 0);
-    background: linear-gradient(186deg, rgba(11, 36, 0, 1) 0%, rgba(3, 170, 223, 1) 47%, rgba(0, 255, 93, 1) 100%); */
-    background-image: url(camping.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height:104vh;
-}
+/* App.css */
 
 .so {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 30px;
+  
+  max-width: 600px;
+  color:white;  
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 3;
+  background:  linear-gradient(170deg, rgb(38, 0, 254) 14%, rgb(3, 102, 223) 62%, rgb(0, 247, 255) 100%);
+  position: absolute; /* Ensure the container is positioned for z-index to work */
+  border-radius: 10px;
+}
+
+.text-xg {
+  font-size: 24px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-white {
+  color: white;
+}
+
+.select-box,
+.input-box {
+    color:black;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-left:8px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submitting {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  flex-basis: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:nth-child(1) {
+  background-color: #28630d;
+}
+
+.btn:nth-child(2) {
+  background-color: #780808;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .form-row {
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 2px 2px 8px 2px;
-    position: absolute;
-    top:120px;
-    width:50vw;
-    height:60vh;
+  }
+
+  .submitting {
+    flex-direction: column;
+  }
+
+  .btn {
+    flex-basis: 100%;
+    margin-top: 10px;
+  }
+}
+
+.cover-home{
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0, 255, 255, 0);
+    z-index: 1;
+    position:absolute;
+    top:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+}
+ .large-font { 
+    height:20vh;
+    font-size: 4vw;
+    width:30vw;
+    font-weight: bold;
+    text-align: center;
+    padding: 0; 
+    opacity: 0;
+    animation: fadeIn 1s forwards; 
+    color:white;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+.ai-button{
+    padding:8px 8px 8px 8px ;
     border-radius: 10px;
-    background:linear-gradient(180deg, rgba(255, 102, 0, 0.682) 14%, rgba(255, 255, 255, 0.41) 50%, rgba(0, 255, 94, 0.78) 100%); 
-       
+    position: absolute;
+    bottom:30px;
+    color:white;
+    border: 1px solid white;
 }
-.submitting{
-    height: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.top{
-    margin-bottom: 10px;
-    display: flex;
-    height:80px;
-    width: 42vw;
-    justify-content: space-between;
-}
-.middle{
-    display: flex;
-    height:80px;
-    width: 100%;    
-    justify-content: space-between;
-     margin-bottom: 10px;
-     padding: none;
-   
+.ai-button:hover{
+    background-color: rgba(240, 255, 255, 0.121);
 }
