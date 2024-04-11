@@ -85,18 +85,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft({navigationControlContainer}) {
   const [loading, setLoading] = useState(true);
-  const [content, setContent] = useState('');
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  useEffect(async () => {
-    setTimeout(() => {
-      const initialContent = document.getElementById('Navigate');
-      console.log(initialContent);
-      setContent(initialContent.innerHTML);
-    }, 4000);
-  }, []);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -156,7 +148,7 @@ export default function PersistentDrawerLeft() {
           </Tabs>
         </Box>   
       <TabPanel value={value} index={0} className='Sidebar'>
-        <div id='Navigate'></div>
+          <div ref={navigationControlContainer} style={{ position: 'absolute', top: 10, right: 10 }} />
       </TabPanel>
       <TabPanel value={value} index={1} className='Sidebar'>
         <div id="nearby_search"></div>

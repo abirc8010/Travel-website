@@ -1,55 +1,52 @@
+import React, { useEffect, useRef, useState } from 'react';
+import mapboxgl from 'mapbox-gl';
+import Drawer from "./Drawer.jsx"
+// Initialize Mapbox
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
 
-import '../Map/Map.css';
-import Drawer from "../Map/Drawer.jsx"
-export default function () {
-    var map;
+const Map = () => {
+  const mapContainer = useRef(null);
+  const [map, setMap] = useState(null);
+const navigationControlContainer = useRef(null);
+  useEffect(() => {
+    const initializeMap = ({ setMap, mapContainer }) => {
+      const map = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-122.4376, 37.7577],
+        zoom: 10
+      });
 
-    const initMap1 = async () => {
-        map = new mappls.Map('map', {
-            center: [28, 77],
-            zoomControl: true,
-            location: true,
-        }
-        );
-         map.addListener('load',function(){ 
-                /*direction plugin initialization*/
-                var direction_option = {
-                    map: map,
-                    divId: 'Navigate',
-                    divWidth:'300px',
-                    isDraggable:false,
-                    Profile:['driving','biking','trucking','walking'],
-                    
-                }
-                mappls.direction(direction_option,function(data) {
-                    direction_plugin=data;
-                    console.log(direction_plugin);
-                });
-                var options = {
-                divId: 'nearby_search',
-                search_icon: false,
-                map: map,
-                keywords:{'FINATM':'ATMs', 'FODCOF;FODIND;FODOTH':'Hotels'},
-                refLocation: "28.632735,77.219696",
-                fitbounds: true,
-                click_callback: function(d) {
-                    if (d) {
-                        var l = "Name: " + d.placeName + "\nAddress: " + d.placeAddress + "\neLoc: " + d.eLoc;
-                        alert(l);
-                    };
-                }
-            }
-            mappls.nearby(options, function(data){
-                nr= data;
-                console.log(nr);
-            });
-               });
+      // Add navigation control
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+      // Add directions control
+      const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving'
+      });
+
+      map.addControl(directions, 'top-left');
+
+      map.on('load', () => {
+        setMap(map);
+      });
+    };
+     
+    if (!map) initializeMap({ setMap, mapContainer });
+    if (map) {
+      const navigationControl = new mapboxgl.NavigationControl();
+     
     }
+  }, [map]);
 
-    return (
-        <> <Drawer>
-        </Drawer>
-            <div id="map" ref={initMap1}></div>
-        </>
-    );
-}
+  return (
+    <>
+  <div ref={mapContainer} style={{ height: '100vh', width: '100%' }}></div>
+    <Drawer parentRef={navigationControlContainer}/>
+   </>
+  )
+};
+
+export default Map;

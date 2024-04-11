@@ -1,8 +1,7 @@
-import ReactMapGL, { NavigationControl } from 'mapbox-gl';
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import "../components/Globe.css"
-mapboxgl.accessToken = 'pk.eyJ1IjoiLS1jb25xdWVyb3ItLSIsImEiOiJjbHVmbGxpdmowanB4MmlvZXJzbGk5ZGpkIn0.Hpum1U7p4fzgJZYOUCeJ_Q';
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
 const MapboxGlobe = () => {
    const mapContainer = useRef(null);
   const map = useRef(null);
